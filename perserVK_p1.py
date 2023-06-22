@@ -29,7 +29,7 @@ posts_key_words = [r" Рак ", r"Страшный диагноз", r"Метас
                    r"яки онкологияне профилактикалау"]
 # posts_key_words = r" рак |Страшный диагноз|Метастаз|Онколог|Онкобольниц|Онкоцентр|Онкодиспансер|Хоспис|Дексаметазон|химиотерапи|Предраков|Лучевая терапия|Злокачественн|Новообразовани|Опухоль|Лучевая терапия|Низкие лейкоциты|онкопатологи|онкодиагностик|онкопрофилактик|профилактика онколог|онкомаркер"
 
-user_token = "vk1.a.7csDDUqi8Uy77K6uL_b5fVwKxrxpay5zWpKjhQp_Xa9clsHCWc4msErqcfPhy1P0CRUKcGAVGbSAg8E-2vyHcUayWb2eTodGEPJNzd-Hoaavs0QxIflmP-2pf4426_QwDxSmVCFwc7bMRuIFhoPiwqTn2UuzvsjU5nqZD9kqpp4hAc6HJUZqcJhUpJQvHjOiT7jE_Ts48dWLEvwIMnSQog"
+user_token = "vk1.a.8R0RxjwcPqf717y5XUkKUSC0TKe6Ay8nMobNxDF6-0xRAxJTi9cSraLjI7G8zt6JMrqzFmJHtnjtQK_SMJ75FWmBeZoT3EeA4VIql-_b3f27S_Xi2GldetfQAhROELdV_Qoawj1g2mS-xNfQYG349PSMjECCa7eY2xzFgqIu8wSwNxHRiKt3n462bGjpUhYZTojg-93RTCgoD8YNAWDaDg"
 
 api_version = 5.131
 
