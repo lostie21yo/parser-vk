@@ -1,0 +1,9 @@
+https://oauth.vk.com/authorize?
+client_id=51681483
+&display=page
+&redirect_uri=https://oauth.vk.com/blank.html
+&scope=offline,wall,friends,photos,groups
+&response_type=token
+&v=5.131
+
+https://oauth.vk.com/blank.html#access_token=vk1.a.7csDDUqi8Uy77K6uL_b5fVwKxrxpay5zWpKjhQp_Xa9clsHCWc4msErqcfPhy1P0CRUKcGAVGbSAg8E-2vyHcUayWb2eTodGEPJNzd-Hoaavs0QxIflmP-2pf4426_QwDxSmVCFwc7bMRuIFhoPiwqTn2UuzvsjU5nqZD9kqpp4hAc6HJUZqcJhUpJQvHjOiT7jE_Ts48dWLEvwIMnSQog&expires_in=0&user_id=105814444
