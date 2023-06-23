@@ -70,7 +70,7 @@ list_of_groups_loc = list(df1['Локация (РТ)'])
 # настройка списка доменов 
 start_offset = 10000
 stop_offset = 20000
-lower = list_of_groups.index("publicdevushkikazani")
+lower = list_of_groups.index("nizhnekamsk_online16")
 # upper = 195
 list_of_groups = list_of_groups[lower:]
 list_of_groups_loc = list_of_groups_loc[lower:]
