@@ -70,7 +70,7 @@ list_of_groups_loc = list(df1['Локация (РТ)'])
 # настройка списка доменов 
 start_offset = 10000
 stop_offset = 20000
-lower = list_of_groups.index("perinatalka")
+lower = list_of_groups.index("publicdevushkikazani")
 # upper = 195
 list_of_groups = list_of_groups[lower:]
 list_of_groups_loc = list_of_groups_loc[lower:]
@@ -99,33 +99,33 @@ for k in range(len(list_of_groups)):
     before_line_count = len(df2.index)
     for post_offset in trange(start_offset, stop_offset, 100):
         time.sleep(0.3)
-        # try:
-        post_package = get_wall_posts_from_group(list_of_groups[k], post_offset)
-        for j in range(len(posts_key_words)):
-            for i in range(len(post_package)):
-                if len(re.findall(posts_key_words[j], post_package[i]["text"], re.IGNORECASE))>0:
-                    # list_of_posts.append(post_package[j])
-                    key_word = real_posts_key_words[j]
-                    link = 'https://vk.com/wall'+str(post_package[i]["from_id"])+'_'+str(post_package[i]["id"])
-                    text = post_package[i]['text'].replace('\n', ' ')
-                    date = datetime.fromtimestamp(post_package[i]['date']).strftime("%d-%m-%Y") #"%Y-%m-%d %H:%M"
-                    likes = post_package[i]['likes']['count']
-                    comments = post_package[i]['comments']['count']
-                    reposts = post_package[i]['reposts']['count']
-                    views = post_package[i]['views']['count']
-                    df2.loc[len(df2.index)] = [key_word, district, list_of_groups[k], link, text, date, likes, comments, reposts, views]
-                    counter += 1
-                    if counter >= 50 and flag:
-                        flag = False
-                        with open(f"{file_dir}/for20more.txt", mode='a') as file:
-                            file.write(f'"{list_of_groups[k]}", ')
-                            
-                    # сохранение
-                    # df2 = df2.drop_duplicates(subset=['Пост (текст)'], keep='last')
-                    # df2.to_csv(f'{file_dir}/post_statistic_p2.csv', sep='\t', index= False, encoding="utf-16")
-        # except:
-        #     # print(f"\nупс, маловато постов похоже")
-        #     break
+        try:
+            post_package = get_wall_posts_from_group(list_of_groups[k], post_offset)
+            for j in range(len(posts_key_words)):
+                for i in range(len(post_package)):
+                    if len(re.findall(posts_key_words[j], post_package[i]["text"], re.IGNORECASE))>0:
+                        # list_of_posts.append(post_package[j])
+                        key_word = real_posts_key_words[j]
+                        link = 'https://vk.com/wall'+str(post_package[i]["from_id"])+'_'+str(post_package[i]["id"])
+                        text = post_package[i]['text'].replace('\n', ' ')
+                        date = datetime.fromtimestamp(post_package[i]['date']).strftime("%d-%m-%Y") #"%Y-%m-%d %H:%M"
+                        likes = post_package[i]['likes']['count']
+                        comments = post_package[i]['comments']['count']
+                        reposts = post_package[i]['reposts']['count']
+                        views = post_package[i]['views']['count']
+                        df2.loc[len(df2.index)] = [key_word, district, list_of_groups[k], link, text, date, likes, comments, reposts, views]
+                        counter += 1
+                        if counter >= 50 and flag:
+                            flag = False
+                            with open(f"{file_dir}/for20more.txt", mode='a') as file:
+                                file.write(f'"{list_of_groups[k]}", ')
+                                
+                        # сохранение
+                        # df2 = df2.drop_duplicates(subset=['Пост (текст)'], keep='last')
+                        # df2.to_csv(f'{file_dir}/post_statistic_p2.csv', sep='\t', index= False, encoding="utf-16")
+        except:
+            # print(f"\nупс, маловато постов похоже")
+            break
     # сохранение в файл
     df2 = df2.drop_duplicates(subset=['Пост (текст)'], keep='last')
     print(f"Обнаружено {counter} строк (было {before_line_count}, стало {len(df2.index)}, без дупликатов добавлено {len(df2.index)-before_line_count})\n")
