@@ -68,12 +68,22 @@ list_of_groups_loc = list(df1['Локация (РТ)'])
 #     print(f"{list_of_groups_loc[i]}              {list_of_groups[i]}")
 
 # настройка списка доменов 
-start_offset = 10000
-stop_offset = 20000
-lower = list_of_groups.index("nizhnekamsk_online16")
+start_offset = 20000
+stop_offset = 30000
+list_of_groups = ['nabchel', 'almetyevsk_city', 'chelvk', 
+                  'ukytatarstan', 'agryzskievesti', 'rabota_naberezhnye_chelnyi', 
+                  'novostiprokazan', 'perinatalka', 'mamochki_16', 'sos116', 
+                  'mamochki_nch', 'tvchelny', 'vatanym', 
+                  "smi_naberezhnye_chelny", "chelny.life", "kazanushka", 
+                  "naydkzn", "tipi4nelabuga", "onlineelabuga", 
+                  "elabuga_news_online", "elabugablog", 
+                  "chelnynews_ru", "onlinetatar", 
+                  "chelny.baraxolka"] # Начиная с 4544 район исправить
+lower = list_of_groups.index("mamochki_16")
 # upper = 195
 list_of_groups = list_of_groups[lower:]
-list_of_groups_loc = list_of_groups_loc[lower:]
+# list_of_groups_loc = list_of_groups_loc[lower:]
+
 print(list_of_groups)
 """Проверено постов: 
 - первые 15 000 [0-5]
@@ -92,7 +102,7 @@ for k in range(len(list_of_groups)):
         df2 = pd.read_csv(f"{file_dir}/post_statistic_p2.csv", delimiter='\t', encoding='utf-16') # old
     except:
         df2 = pd.DataFrame(columns=('Ключ', 'Локация (РТ)', 'Домен', 'Ссылка', 'Пост (текст)', 'Дата', 'Лайки', 'Комментарии', 'Репосты', 'Просмотры')) # new
-    district = list_of_groups_loc[k]
+    district = "!!!CHANGE!!!"
     print(f'Домен {k+1}/{len(list_of_groups)} - {list_of_groups[k]}')
     counter = 0
     flag = True
@@ -115,10 +125,10 @@ for k in range(len(list_of_groups)):
                         views = post_package[i]['views']['count']
                         df2.loc[len(df2.index)] = [key_word, district, list_of_groups[k], link, text, date, likes, comments, reposts, views]
                         counter += 1
-                        if counter >= 50 and flag:
-                            flag = False
-                            with open(f"{file_dir}/for20more.txt", mode='a') as file:
-                                file.write(f'"{list_of_groups[k]}", ')
+                        # if counter >= 50 and flag:
+                        #     flag = False
+                        #     with open(f"{file_dir}/for20more.txt", mode='a') as file:
+                        #         file.write(f'"{list_of_groups[k]}", ')
                                 
                         # сохранение
                         # df2 = df2.drop_duplicates(subset=['Пост (текст)'], keep='last')

@@ -17,7 +17,10 @@ def duplicate_counting(df, limit):
         print(elem)
 
 
-df = df.drop_duplicates(subset=['Домен'], keep='first')
-df = df.sort_values(by=['Домен'])
+# df = df.drop_duplicates(subset=['Домен'], keep='first')
+# df = df.sort_values(by=['Домен'])
 
-df.to_csv(f'{file_dir}/post_statistic.csv', sep='\t', index= False, encoding="utf-16")
+# df.to_csv(f'{file_dir}/post_statistic.csv', sep='\t', index= False, encoding="utf-16")
+
+with open(f"{file_dir}/for20more.txt", mode='w') as file:
+    file.write(f'"{list_of_groups[k]}", ')
